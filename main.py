@@ -7,7 +7,3 @@ mazzo = Mazzo(13)
 b = banco()
 print(str(b.estrai()))
 
-
-
-
-
