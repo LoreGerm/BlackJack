@@ -58,6 +58,7 @@ class giocatore:
 
             if x == '2':
                 banco.distribuisci(self)
+                print("-------------------------------------")
                 print("Carte:  ",self.str_carte())
                 print("Totale:  ",self.get_totale())
                 print("Soldi:  ",self.get_soldi())
@@ -74,6 +75,7 @@ class giocatore:
                 raddoppio = self.__scommessa * 2
                 self.__soldi -= self.__scommessa
                 banco.distribuisci(self)
+                print("-------------------------------------")
                 print("Carte:  ",self.str_carte())
                 print("Totale:  ",self.get_totale())
                 print("Soldi:  ",self.get_soldi())

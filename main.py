@@ -14,13 +14,16 @@ player = [p1,p2]
 
 b = banco(13,player)
 
+p1.scommetti(100)
+
+b.distribuisci(player)
 b.distribuisci(player)
 
-print(str(p1.get_carte()[0]))
+print(str(p1.get_carte()[0]),str(p1.get_carte()[1]))
 print('--------------------------------')
-print(str(p2.get_carte()[0]))
+print(str(p2.get_carte()[0]),str(p2.get_carte()[1]))
 print('--------------------------------')
-print(str(b.get_carte()[0]))
+print(str(b.get_carte()[0]),str(b.get_carte()[1]))
 print('---------------------------------')
 
 print(p1.turno())
