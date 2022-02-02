@@ -8,9 +8,13 @@ class banco(Mazzo):
     def __init__(self,numero_carte,giocatori):
         super().__init__(numero_carte)
         self.__giocatori = giocatori    # PASSARE TUTTI I GIOCATORI (NON CONSIDERARE IL BANCO)
+        self.__giocatori.append(self)
 
     def set_carte(self,carte):
         self.__carte.append(carte)
+
+    def get_carte(self):
+        return self.__carte
 
     def cont_carte(self):
         if sum(self.__carte) > 21:
