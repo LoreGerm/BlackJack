@@ -4,6 +4,7 @@ from classi.banco import banco
 
 class giocatore:
 
+
     def __init__(self,nome,soldi):
         self.__nome = nome
         assert isinstance(soldi,int) > 0 , "non valido"
@@ -43,12 +44,13 @@ class giocatore:
 
 
     def turno(self):
+        x = 0
         while x != 3:
             print('1 - Chiedi carta')
             print('2 - Raddoppia')
             print('3 - Shtatt ferm')
             x = input("Scegli la mossa:  ")
-            
+
             if x == 1:
                 banco.distribuisci(self)
                 if self.__tot_carte == 21:
@@ -70,4 +72,6 @@ class giocatore:
                         return '21'
                 elif self.__tot_carte > 21:
                     return 'Sballato'
-                Break
+                break
+            else:
+                return False

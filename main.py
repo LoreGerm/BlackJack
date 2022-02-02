@@ -21,8 +21,9 @@ print('--------------------------------')
 print(str(p2.get_carte()[0]))
 print('--------------------------------')
 print(str(b.get_carte()[0]))
+print('---------------------------------')
 
-print(p1.get_totale())
+p1.turno()
 
 
 # CREA LISTA GIOCAORI   OK
