@@ -13,6 +13,9 @@ class giocatore:
         self.__tot_carte = 0
         self.__scommessa = 0
 
+    def get_soldi(self):
+        return self.__soldi
+
     def get_carte(self):
         return self.__carte
 
@@ -44,16 +47,20 @@ class giocatore:
 
     def turno(self):
         x = 0
+        cont = 0
         while x != 3:
-            print('1 - Chiedi carta')
-            print('2 - Raddoppia')
-            print('3 - Shtatt ferm')
+            print('1 - Shtatt ferm')
+            print('2 - Chiedi carta')
+            if cont == 0:
+                print('3 - Raddoppia')
+
             x = input("Scegli la mossa:  ")
 
-            if x == '1':
+            if x == '2':
                 banco.distribuisci(self)
                 print("Carte:  ",self.str_carte())
                 print("Totale:  ",self.get_totale())
+                print("Soldi:  ",self.get_soldi())
 
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
@@ -63,12 +70,13 @@ class giocatore:
                 elif self.__tot_carte > 21:
                     return 'Sballato'
 
-            elif x == '2':
+            elif x == '3' and cont == 0:
                 raddoppio = self.__scommessa * 2
                 self.__soldi -= self.__scommessa
                 banco.distribuisci(self)
                 print("Carte:  ",self.str_carte())
                 print("Totale:  ",self.get_totale())
+                print("Soldi:  ",self.get_soldi())
 
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
@@ -80,3 +88,5 @@ class giocatore:
                 break
             else:
                 return False
+
+            cont+=1
