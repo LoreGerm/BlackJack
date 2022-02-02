@@ -48,12 +48,26 @@ class giocatore:
             print('2 - Raddoppia')
             print('3 - Shtatt ferm')
             x = input("Scegli la mossa:  ")
+            
             if x == 1:
                 banco.distribuisci(self)
-                # CONFRONTA TOTALE
+                if self.__tot_carte == 21:
+                    if len(self.get_carte()) == 2:
+                        return 'BJ'
+                    else:
+                        return '21'
+                elif self.__tot_carte > 21:
+                    return 'Sballato'
+
             elif x == 2:
                 raddoppio = self.__scommessa * 2
                 self.__soldi -= self.__scommessa
                 banco.distribuisci(self)
-                # CONFRONTA TOTALE
+                if self.__tot_carte == 21:
+                    if len(self.get_carte()) == 2:
+                        return 'BJ'
+                    else:
+                        return '21'
+                elif self.__tot_carte > 21:
+                    return 'Sballato'
                 Break
