@@ -1,4 +1,5 @@
-
+from ast import Break
+from classi.banco import banco
 
 
 class giocatore:
@@ -9,6 +10,7 @@ class giocatore:
         self.__soldi = soldi
         self.__carte = []   # CARTE ESTRATTE
         self.__tot_carte = 0
+        self.__scommessa = 0
 
     def get_carte(self):
         return self.__carte
@@ -28,5 +30,30 @@ class giocatore:
         else:
             return 'contin'
 
+
     def get_totale(self):
         return self.__tot_carte
+
+    def scommetti(self,scommessa):
+        if scommessa < self.__soldi:
+            self.__soldi -= scommessa
+            self.__scommessa = scommessa
+        else:
+            return False
+
+
+    def turno(self):
+        while x != 3:
+            print('1 - Chiedi carta')
+            print('2 - Raddoppia')
+            print('3 - Shtatt ferm')
+            x = input("Scegli la mossa:  ")
+            if x == 1:
+                banco.distribuisci(self)
+                # CONFRONTA TOTALE
+            elif x == 2:
+                raddoppio = self.__scommessa * 2
+                self.__soldi -= self.__scommessa
+                banco.distribuisci(self)
+                # CONFRONTA TOTALE
+                Break

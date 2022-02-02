@@ -24,6 +24,9 @@ class banco(Mazzo):
         else:
             return 'contin'
 
+    @classmethod
     def distribuisci(self,giocatori):
         for i in giocatori:
             i.set_carte(self.estrai())
+
+
