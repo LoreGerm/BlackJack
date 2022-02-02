@@ -53,6 +53,8 @@ class giocatore:
 
             if x == 1:
                 banco.distribuisci(self)
+                print(self.cont_carte()[len(self.get_carte())-1])
+                print(self.get_totale())
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
                         return 'BJ'
@@ -65,6 +67,8 @@ class giocatore:
                 raddoppio = self.__scommessa * 2
                 self.__soldi -= self.__scommessa
                 banco.distribuisci(self)
+                print(self.cont_carte()[len(self.get_carte())-1])
+                print(self.get_totale())
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
                         return 'BJ'
