@@ -2,24 +2,21 @@ from random import random
 import random
 
 class Mazzo:
-    mazzo_carte = []
+    __mazzo_carte = []
     def __init__(self, numero_carte):
         for i in range (1,numero_carte + 1, 1):
-            self.mazzo_carte.append(Quadri(i))
-            self.mazzo_carte.append(Picche(i))
-            self.mazzo_carte.append(Cuori(i))
-            self.mazzo_carte.append(Fiori(i))
+            self.__mazzo_carte.append(Quadri(i))
+            self.__mazzo_carte.append(Picche(i))
+            self.__mazzo_carte.append(Cuori(i))
+            self.__mazzo_carte.append(Fiori(i))
+
+        random.shuffle(self.__mazzo_carte)
 
     def get_Mazzo(self):
-        return self.mazzo_carte
+        return self.__mazzo_carte
 
-    @classmethod
     def estrai(self):
-        l_mazzo = len(self.mazzo_carte) - 1
-        l_inizio = 0
-        random.shuffle(self.mazzo_carte)
-        num_estratto = random.randint(l_inizio, l_mazzo)
-        return self.mazzo_carte.pop(num_estratto)
+        return self.__mazzo_carte.pop(len(self.__mazzo_carte)-1)
 
 class Carta:
     __seme = ""

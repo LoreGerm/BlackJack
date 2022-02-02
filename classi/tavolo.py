@@ -1,6 +1,6 @@
-from classi.giocatore import giocatore
 
 
+'''
 class tavolo:
     __giocatore = [] # OBJ GIOCATORE
     __banco = [] # OBJ BANCO
@@ -33,4 +33,4 @@ class tavolo:
             return "perso"
         else:
             return "vinto"
-    
+    '''
