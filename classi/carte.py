@@ -28,6 +28,9 @@ class Carta:
     def __str__(self):
         return str(self.numero) + " di " + self.seme
 
+    def get_numero(self):
+        return self.numero
+
 
 class Quadri(Carta):
 

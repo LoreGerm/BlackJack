@@ -22,4 +22,5 @@ print(str(p2.get_carte()[0]))
 print('--------------------------------')
 print(str(b.get_carte()[0]))
 
+print(p1.get_totale())
 
