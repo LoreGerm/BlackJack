@@ -32,27 +32,67 @@ class Carta:
 class Quadri(Carta):
 
     def __init__(self, numero):
-        self.seme = "quadri"
-        self.numero = numero
+        if numero == 11:
+            self.seme = "Quadri"
+            self.numero = 'J'
+        elif numero == 12:
+            self.seme = "Quadri"
+            self.numero = 'Q'
+        elif numero == 13:
+            self.seme = "Quadri"
+            self.numero = 'K'
+        else:
+            self.seme = "Quadri"
+            self.numero = numero
     
     
 
 class Fiori(Carta):
 
     def __init__(self, numero):
-        self.seme = "Fiori"
-        self.numero = numero
+        if numero == 11:
+            self.seme = "Fiori"
+            self.numero = 'J'
+        elif numero == 12:
+            self.seme = "Fiori"
+            self.numero = 'Q'
+        elif numero == 13:
+            self.seme = "Fiori"
+            self.numero = 'K'
+        else:
+            self.seme = "Fiori"
+            self.numero = numero
 
 
 class Picche(Carta):
 
     def __init__(self, numero):
-        self.seme = "Picche"
-        self.numero = numero
+        if numero == 11:
+            self.seme = "Picche"
+            self.numero = 'J'
+        elif numero == 12:
+            self.seme = "Picche"
+            self.numero = 'Q'
+        elif numero == 13:
+            self.seme = "Picche"
+            self.numero = 'K'
+        else:
+            self.seme = "Picche"
+            self.numero = numero
 
 
 class Cuori(Carta):
 
     def __init__(self, numero):
-        self.seme = "Cuori"
-        self.numero = numero
+        if numero == 11:
+            self.seme = "Cuori"
+            self.numero = 'J'
+        elif numero == 12:
+            self.seme = "Cuori"
+            self.numero = 'Q'
+        elif numero == 13:
+            self.seme = "Cuori"
+            self.numero = 'K'
+        else:
+            self.seme = "Cuori"
+            self.numero = numero
