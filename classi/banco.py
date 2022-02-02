@@ -26,7 +26,10 @@ class banco(Mazzo):
 
     @classmethod
     def distribuisci(cls,giocatori):
-        for i in giocatori:
-            i.set_carte(cls.estrai())
+        if isinstance(giocatori,list):
+            for i in giocatori:
+                i.set_carte(cls.estrai())
+        else:
+            giocatori.set_carte(cls.estrai())
 
 

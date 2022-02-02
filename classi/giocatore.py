@@ -23,14 +23,14 @@ class giocatore:
         else:
             self.__tot_carte += carta.get_numero()
 
-    def cont_carte(self):
-        if sum(self.__carte) > 21:
-            return "perso"
-        elif(sum(self.__carte) == 21):
-            return "bj"
+    def str_carte(self):
+        carte = []
+        if isinstance(self.get_carte(),list):
+            for i in self.get_carte():
+                carte.append(str(i))
+            return carte
         else:
-            return 'contin'
-
+            return str(self.get_carte())
 
     def get_totale(self):
         return self.__tot_carte
@@ -42,7 +42,6 @@ class giocatore:
         else:
             return False
 
-
     def turno(self):
         x = 0
         while x != 3:
@@ -51,10 +50,11 @@ class giocatore:
             print('3 - Shtatt ferm')
             x = input("Scegli la mossa:  ")
 
-            if x == 1:
+            if x == '1':
                 banco.distribuisci(self)
-                print(self.cont_carte()[len(self.get_carte())-1])
-                print(self.get_totale())
+                print("Carte:  ",self.str_carte())
+                print("Totale:  ",self.get_totale())
+
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
                         return 'BJ'
@@ -63,12 +63,13 @@ class giocatore:
                 elif self.__tot_carte > 21:
                     return 'Sballato'
 
-            elif x == 2:
+            elif x == '2':
                 raddoppio = self.__scommessa * 2
                 self.__soldi -= self.__scommessa
                 banco.distribuisci(self)
-                print(self.cont_carte()[len(self.get_carte())-1])
-                print(self.get_totale())
+                print("Carte:  ",self.str_carte())
+                print("Totale:  ",self.get_totale())
+
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
                         return 'BJ'

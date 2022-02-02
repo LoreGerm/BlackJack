@@ -23,7 +23,7 @@ print('--------------------------------')
 print(str(b.get_carte()[0]))
 print('---------------------------------')
 
-p1.turno()
+print(p1.turno())
 
 
 # CREA LISTA GIOCAORI   OK

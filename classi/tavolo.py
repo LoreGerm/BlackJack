@@ -33,4 +33,24 @@ class tavolo:
             return "perso"
         else:
             return "vinto"
+
+
+
+
+
+
+
+
+    CLASSE GIOCATORE
+    
+    def cont_carte(self):
+        if sum(self.__carte) > 21:
+            return "perso"
+        elif sum(self.__carte) == 21:
+            return "bj"
+        else:
+            return 'contin'
+
+
+
     '''
