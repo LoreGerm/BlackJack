@@ -1,10 +1,11 @@
 from classi.carte import Mazzo
 
-class banco:
+class banco(Mazzo):
     __carte = [] # OBJ MAZZO.ESTRATTE
 
-    def estrai(self):
-        return Mazzo.estrai()
+
+    def __init__(self,numero_carte):
+        super().__init__(numero_carte)
 
     def set_carte(self,carte):
         self.__carte.append(carte)
