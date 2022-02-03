@@ -44,7 +44,7 @@ class giocatore:
         else:
             return False
 
-    def turno(self):
+    def turno_giocatore(self):
         x = 0
         cont = 0
         while x != 3:

@@ -49,7 +49,7 @@ class banco(Mazzo):
         else:
             giocatori.set_carte(cls.estrai())
 
-    def turno(self):
+    def turno_banco(self):
         x = 0
         while x != 3:
             if self.__tot_carte < 17:
