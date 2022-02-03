@@ -1,4 +1,3 @@
-from ast import Break
 from classi.banco import banco
 
 
