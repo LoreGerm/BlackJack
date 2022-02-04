@@ -12,11 +12,6 @@ class giocatore:
         self.__tot_carte = 0
         self.__scommessa = 0
 
-    def get_soldi(self):
-        return self.__soldi
-
-    def get_carte(self):
-        return self.__carte
 
     def set_carte(self, carta):
         self.__carte.append(carta)
@@ -24,6 +19,25 @@ class giocatore:
             self.__tot_carte += 10
         else:
             self.__tot_carte += carta.get_numero()
+        if self.__tot_carte > 21:
+            for i in self.__carte:
+                if i.get_numero() == 1:
+                    self.__tot_carte -= 10
+
+    def get_soldi(self):
+        return self.__soldi
+    
+    def get_nome(self):
+        return self.__nome
+
+    def get_scommessa(self):
+        return self.__scommessa
+
+    def set_soldi(self, soldi):
+        self.__soldi = soldi
+
+    def get_carte(self):
+        return self.__carte
 
     def str_carte(self):
         carte = []
@@ -64,11 +78,12 @@ class giocatore:
 
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
-                        return 'BJ'
+                        print('BJ')
                     else:
-                        return '21'
+                        print('21')
                 elif self.__tot_carte > 21:
-                    return 'Sballato'
+                    print('Sballato')
+                    break
 
             elif x == '3' and cont == 0:
                 raddoppio = self.__scommessa * 2
@@ -81,13 +96,13 @@ class giocatore:
 
                 if self.__tot_carte == 21:
                     if len(self.get_carte()) == 2:
-                        return 'BJ'
+                        print('BJ')
                     else:
-                        return '21'
+                        print('21')
                 elif self.__tot_carte > 21:
-                    return 'Sballato'
+                    print('Sballato')
                 break
             else:
-                return False
+                break
 
             cont+=1

@@ -7,7 +7,7 @@ class banco(Mazzo):
 
     def __init__(self,numero_carte,giocatori):
         super().__init__(numero_carte)
-        self.__giocatori = giocatori    # PASSARE TUTTI I GIOCATORI (NON CONSIDERARE IL BANCO)
+        self.__giocatori = giocatori   
         self.__giocatori.append(self)
         self.__tot_carte = 0
 
@@ -20,6 +20,10 @@ class banco(Mazzo):
             self.__tot_carte += 10
         else:
             self.__tot_carte += carta.get_numero()
+        if self.__tot_carte > 21:
+            for i in self.__carte:
+                if i.get_numero() == 1:
+                    self.__tot_carte -= 10
 
     def str_carte(self):
         carte = []
@@ -46,18 +50,41 @@ class banco(Mazzo):
         if isinstance(giocatori,list):
             for i in giocatori:
                 i.set_carte(cls.estrai())
+                i.set_carte(cls.estrai())
         else:
             giocatori.set_carte(cls.estrai())
 
+
     def turno_banco(self):
-        x = 0
-        while x != 3:
-            if self.__tot_carte < 17:
-                print('1 - Shtatt ferm')
-                print('2 - Chiedi carta')
-                x = input("Scegli la mossa:  ")
+        bool = False
+        for i in range(len(self.__giocatori)-1):
+            if self.__giocatori[i].get_totale() > 21:
+                bool = True
             else:
-                break
-            
+                bool = False
+        if bool == False:
+            while self.__tot_carte < 17:
+                self.distribuisci(self)
+
+
+    def confronto(self):
+        for i in range(len(self.__giocatori)-1):
+            if self.__tot_carte > 21:
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa())
+                return 'vinto'
+            elif self.__giocatori[i].get_totale() > 21 or self.__tot_carte > self.__giocatori[i].get_totale():
+                return 'perso'
+            elif self.__tot_carte == self.__giocatori[i].get_totale():
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa())
+                return 'pari'
+            elif self.__tot_carte < self.__giocatori[i].get_totale():
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa()*2)
+                return 'vinto'
+            elif self.__tot_carte == 21 and len(self.__carte) == 2 and len(self.__giocatori[i].get_carte()) > 2:
+                return 'perso'
+            else:
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa()*2)
+                return 'vinto'
+
 
 
