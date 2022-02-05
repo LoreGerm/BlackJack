@@ -70,7 +70,7 @@ class banco(Mazzo):
     def confronto(self):
         for i in range(len(self.__giocatori)-1):
             if self.__tot_carte > 21:
-                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa())
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__giocatori[i].get_scommessa()*2)
                 return 'vinto'
             elif self.__giocatori[i].get_totale() > 21 or self.__tot_carte > self.__giocatori[i].get_totale():
                 return 'perso'

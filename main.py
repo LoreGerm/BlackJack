@@ -12,7 +12,7 @@ player = [p1]
 
 b = banco(13,player)
 
-print('Soldi totali: ', p1.get_soldi())         # VERIFICARE
+print('Soldi totali: ', p1.get_soldi())        
 scommessa = int(input('Soldi da puntare: '))
 p1.scommetti(scommessa)
 
