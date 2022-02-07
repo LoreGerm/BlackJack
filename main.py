@@ -21,7 +21,7 @@ b.distribuisci(player)
 
 
 
-print(p1.get_nome(),' ', p1.str_carte(), 'totale: ',p1.get_totale())
+print(p1.get_nome(),': ', p1.str_carte(), 'totale: ',p1.get_totale())
 print('---------------------------------')
 print('Banco: ', b.get_carte()[1])
 print('---------------------------------')
