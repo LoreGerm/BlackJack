@@ -58,16 +58,13 @@ class giocatore:
         else:
             return False
 
-    def turno_giocatore(self):
-        x = 0
+    def turno_giocatore(self,x):
         cont = 0
         while x != 3:
             print('1 - Shtatt ferm')
             print('2 - Chiedi carta')
             if cont == 0:
                 print('3 - Raddoppia')
-
-            x = input("Scegli la mossa:  ")
 
             if x == '2':
                 banco.distribuisci(self)
