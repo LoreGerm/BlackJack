@@ -26,7 +26,7 @@ class server:
 
         message = socket.recv()
 
-        self.__p1.turno_giocatore(message)
+        
 
         socket.send()
 
