@@ -1,3 +1,4 @@
+import json
 import zmq
 
 from classi.banco import banco
@@ -12,8 +13,12 @@ class server:
 
     players = []
     player = socket.recv()  # SERVER RICEVE I GIOCATORI DAL CLIENT
+    player = str(player, 'utf-8')
+    player = json.loads(player)
     players.append(player)
-    b = banco(13,players)
+    print(players)
+
+    #b = banco(13,players)
 
 
 
