@@ -19,4 +19,37 @@ def set_carte(self, carta):
             for i in self.__carte:
                 if i.get_numero() == 1:
                     self.__tot_carte -= 10
+
+
+
+    #  Do 10 requests, waiting each time for a response
+    for request in range(10):
+        print("Sending request %s …" % request)
+        socket.send(b"ciao")
+
+        #  Get the reply.
+        message = socket.recv()
+        print("Received reply %s [ %s ]" % (request, message))
+
+
+
+
+
+
+
+
+
+
+    while True:
+        #  Wait for next request from client
+
+        
+
+        message = socket.recv()
+
+        
+
+        socket.send()
+
+        #  Do some 'work'
 '''

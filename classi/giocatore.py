@@ -11,6 +11,7 @@ class giocatore:
         self.__carte = []   # CARTE ESTRATTE
         self.__tot_carte = 0
         self.__scommessa = 0
+        self.__id = id(self)
 
 
     def set_carte(self, carta):
@@ -26,6 +27,9 @@ class giocatore:
 
     def get_soldi(self):
         return self.__soldi
+
+    def get_id(self):
+        return self.__id
     
     def get_nome(self):
         return self.__nome
