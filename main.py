@@ -1,8 +1,3 @@
-
-
-
-
-'''
 from classi.banco import banco
 from classi.giocatore import giocatore
 
@@ -51,4 +46,3 @@ print(p1.get_soldi())
 # RISULTATO SCOMMESSA   OK
 
 # GOTO INIZIO
-'''
