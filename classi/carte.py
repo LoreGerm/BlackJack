@@ -15,9 +15,6 @@ class Mazzo:
     def get_Mazzo(self):
         return self.__mazzo_carte
 
-    @classmethod
-    def estrai(cls):
-        return cls.__mazzo_carte.pop(len(cls.__mazzo_carte)-1)
 
 class Carta:
     __seme = ""
@@ -26,7 +23,7 @@ class Carta:
     def get_seme(self):
         return self.__seme
 
-    def __str__(self):
+    def __repr__(self):
         return str(self.numero) + " di " + self.seme
 
     def get_numero(self):
