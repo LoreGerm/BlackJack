@@ -2,6 +2,7 @@ import json
 import zmq
 
 from classi.giocatore import giocatore
+from classi.utility import utility
 
 class client:
 
@@ -11,19 +12,16 @@ class client:
 
 
 
-    def obj_to_byte(obj):
-        obj_json = json.dumps(obj.__dict__)
-        obj_byte = bytes(obj_json, 'utf-8')
-        return obj_byte
-
-
 
     nome = input('Nome giocatore:  ')
     p = giocatore(nome, 500000)
-    p_byte = obj_to_byte(p)
+    p_byte = utility.str_to_byte(p.__dict__)
     socket.send(p_byte)
     message = socket.recv()
-    print("Received reply ", message)
+    message = utility.byte_to_str(message)
+    print("Soldi: ", message)
+
+    socket.close()
 
 
 
