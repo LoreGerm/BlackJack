@@ -1,42 +1,22 @@
-
-from classi.banco import banco
-from classi.giocatore import giocatore
-
-
+from classi.banco import Banco
+from classi.giocatore import Giocatore
+from classi.tavolo import Tavolo
 
 
-
-p1 = giocatore('Ciatteo',50000)
-
+p1 = Giocatore('Ciatteo', 50000)
 player = [p1]
-
-b = banco(13,player)
-
-print('Soldi totali: ', p1.get_soldi())         # VERIFICARE
-scommessa = int(input('Soldi da puntare: '))
-p1.scommetti(scommessa)
-
-
-b.distribuisci(player)
+b = Banco(13)
+t = Tavolo(b, player)
+print(p1.get_id())
+t.set_carte(player)
+print(t.get_carte())
 
 
 
-print(p1.get_nome(),' ', p1.str_carte(), 'totale: ',p1.get_totale())
-print('---------------------------------')
-print('Banco: ', b.get_carte()[1])
-print('---------------------------------')
 
-p1.turno_giocatore()
+# ESTRAI  OK
+#
 
-b.turno_banco()
-print('carte bnco: ', b.str_carte(), 'totale: ',b.get_totale())
-
-print(b.confronto())
-print(p1.get_soldi())
-
-
-# CREA LISTA GIOCAORI   OK
-# CREA BANCO    OK
 
 # :INIZIO GIOCO
 
