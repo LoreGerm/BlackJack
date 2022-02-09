@@ -3,7 +3,6 @@ import zmq
 
 from classi.banco import banco
 from classi.giocatore import giocatore
-from classi.utility import utility
 
 class server:
 
@@ -17,12 +16,11 @@ class server:
 
     while True:
         players = []
-        player = socket.recv()  # SERVER RICEVE I GIOCATORI DAL CLIENT
-        player = utility.byte_to_str(player)
+        player = socket.recv_json()  # SERVER RICEVE I GIOCATORI DAL CLIENT
+        player = json.loads(player)
         soldi = player['_giocatore__soldi']
-        soldi = utility.str_to_byte(soldi)
         players.append(player)
-        socket.send(soldi)
+        socket.send_json(soldi)
         print(players)
         
 
