@@ -1,55 +1,36 @@
+# dizionario con chiave id giocatore e valore lista carte
+
+class Tavolo:
 
 
+    def __init__(self, banco, giocatori):
+        self.__scommesse = {}
+        self.__giocatori = giocatori
+        self.__banco = banco
+        self.__carte_totali = {}
 
-'''
-asso = Picche(1)
-p1.set_carte(asso)
+    def get_carte(self):
+        return self.__carte_totali
 
 
+    def confronto(self):
+        pass
 
-def set_carte(self, carta):
-        self.__carte.append(carta)
-        if carta.get_numero() == 1:
-            self.__tot_carte += 11
-        elif carta.get_numero() == 'J' or carta.get_numero() == 'K' or carta.get_numero() == 'Q':
-            self.__tot_carte += 10
+
+    def set_scommessa(self, giocatore, scommessa):
+        self.__scommesse[giocatore.get_id()] = scommessa
+
+    def set_carte(self, giocatori):
+        if isinstance(giocatori, list):
+            for i in giocatori:
+                if i.get_id() in self.__carte_totali:
+                    self.__carte_totali[i.get_id()].append(self.__banco.estrai())
+                else:
+                    self.__carte_totali[i.get_id()] = [self.__banco.estrai()]
         else:
-            self.__tot_carte += carta.get_numero()
-        if self.__tot_carte > 21:
-            for i in self.__carte:
-                if i.get_numero() == 1:
-                    self.__tot_carte -= 10
+            if giocatori.get_id() in self.__carte_totali:
+                self.__carte_totali[giocatori.get_id()].append(self.__banco.estrai())
+            else:
+                self.__carte_totali[giocatori.get_id()] = [self.__banco.estrai()]
 
 
-
-    #  Do 10 requests, waiting each time for a response
-    for request in range(10):
-        print("Sending request %s …" % request)
-        socket.send(b"ciao")
-
-        #  Get the reply.
-        message = socket.recv()
-        print("Received reply %s [ %s ]" % (request, message))
-
-
-
-
-
-
-
-
-
-
-    while True:
-        #  Wait for next request from client
-
-        
-
-        message = socket.recv()
-
-        
-
-        socket.send()
-
-        #  Do some 'work'
-'''
