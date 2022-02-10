@@ -10,6 +10,13 @@ class Giocatore:
         self.__soldi = soldi
         self.__id = id(self)
 
+    def scelta(self):
+        print('1 - Shtatt ferm')
+        print('2 - Chiedi carta')
+        print('3 - Raddoppia')
+        return int(input('Scegli mossa:  '))
+
+
     def get_soldi(self):
         return self.__soldi
 
@@ -25,7 +32,7 @@ class Giocatore:
         self.__soldi = soldi
 
     def scommetti(self,scommessa):
-        if scommessa < self.__soldi:
+        if scommessa <= self.__soldi:
             self.__soldi -= scommessa
             return scommessa
         else:
@@ -34,7 +41,10 @@ class Giocatore:
     def turno_giocatore(self):
         cont = 0
 
-        """
+        while True:
+            pass
+
+"""
         while x != 3:
             print('1 - Shtatt ferm')
             print('2 - Chiedi carta')
@@ -47,9 +57,9 @@ class Giocatore:
                 pass
 
             cont+=1
-"""
 
-        """
+
+
 
             def set_carte(self, carta):
                 self.__carte.append(carta)
@@ -61,4 +71,4 @@ class Giocatore:
                     for i in self.__carte:
                         if i.get_numero() == 1:
                             self.__tot_carte -= 10
-        """
+"""
