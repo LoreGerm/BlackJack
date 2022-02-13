@@ -68,7 +68,7 @@ class Tavolo:
         for i in range (len(self.__giocatori)):
             self.set_carte(self.__giocatori[i])   # SECONDE CARTE
 
-        for i in self.__carte_totali:
+        for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
             if self.__giocatori[-1].get_id() == i:
                 print(i,' : ',self.__carte_totali[i],'\n')
             else:
@@ -120,11 +120,12 @@ class Tavolo:
                         else:
                             print('Saldo non sufficiente') #HAI MENO DEL DOPPIO DELLA PUNTATA
                             x = self.__giocatori[i].scelta()
+                    
 
 
     def turno_banco(self):
         print('\n')
-        for i in self.__carte_totali:
+        for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
             if self.__giocatori[-1].get_id() == i:
                 print(i,' : ',self.__carte_totali[i],'\n')
             else:
@@ -154,6 +155,8 @@ class Tavolo:
         self.confronto()
 
     
+
+    # CONFRONTO FINALE + RESTITUISCE VINCITE
     def confronto(self):
         for i in range(len(self.__giocatori)-1):
             if self.get_tot_carte_giocatore(self.__giocatori[-1]) > 21 and self.__giocatori[i].get_perso() == False:

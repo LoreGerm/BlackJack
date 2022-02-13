@@ -11,11 +11,14 @@ class Giocatore:
         self.__soldi = soldi
         self.__id = id(self)
         self.__perso = False
+        self.__cont = 0
 
     def scelta(self):
         print('1 - Shtatt ferm')
         print('2 - Chiedi carta')
-        print('3 - Raddoppia')
+        if self.__cont == 0:
+            print('3 - Raddoppia')
+        self.__cont = 1
         return int(input('Scegli mossa:  '))
 
     def get_perso(self):
@@ -47,37 +50,3 @@ class Giocatore:
         else:
             return False
 
-    def turno_giocatore(self):
-        cont = 0
-
-        while True:
-            pass
-
-"""
-        while x != 3:
-            print('1 - Shtatt ferm')
-            print('2 - Chiedi carta')
-            if cont == 0:
-                print('3 - Raddoppia')
-
-            if x == '2':
-                pass
-            elif x == '3' and cont == 0:
-                pass
-
-            cont+=1
-
-
-
-
-            def set_carte(self, carta):
-                self.__carte.append(carta)
-                if carta.get_numero() == 'J' or carta.get_numero() == 'K' or carta.get_numero() == 'Q':
-                    self.__tot_carte += 10
-                else:
-                    self.__tot_carte += carta.get_numero()
-                if self.__tot_carte > 21:
-                    for i in self.__carte:
-                        if i.get_numero() == 1:
-                            self.__tot_carte -= 10
-"""
