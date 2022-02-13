@@ -24,3 +24,7 @@ for i in range(len(player)-1):
 
 
 
+'''
+SPLIT : instanzia un'altro giocatore uguale, la vittoria va al primo giocatore
+Array in giocatore per lo split con la seconda carta del giocatore
+'''
