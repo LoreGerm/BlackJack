@@ -1,3 +1,4 @@
+from xmlrpc.client import boolean
 from classi.banco import Banco
 from classi.tavolo import Tavolo
 
@@ -9,6 +10,7 @@ class Giocatore:
         assert isinstance(soldi,int) > 0 , "non valido"
         self.__soldi = soldi
         self.__id = id(self)
+        self.__perso = False
 
     def scelta(self):
         print('1 - Shtatt ferm')
@@ -16,6 +18,8 @@ class Giocatore:
         print('3 - Raddoppia')
         return int(input('Scegli mossa:  '))
 
+    def get_perso(self):
+        return self.__perso
 
     def get_soldi(self):
         return self.__soldi
@@ -25,6 +29,11 @@ class Giocatore:
     
     def get_nome(self):
         return self.__nome
+
+    def set_perso(self,x):
+        assert isinstance(x,bool), 'Valore non valido'
+        self.__perso = x
+
     def set_nome(self, nome):
         self.__nome = nome
 
