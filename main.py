@@ -27,4 +27,12 @@ for i in range(len(player)-1):
 '''
 SPLIT : instanzia un'altro giocatore uguale, la vittoria va al primo giocatore
 Array in giocatore per lo split con la seconda carta del giocatore
+
+LISTA DI COSE DA FARE PER MARIA:
+- ZMQ
+- DATABASE
+- INTERFACCIA GRAFICA (HTML, JAVASCRIPT, PYTHONQT)
+- CREARE IL .EXE
+- 150€ DI DIRITTI COPYRIGHT 
+- OFFRIRE A MANGIARE E BERE ALLE TERRAZZE(Piazza I Maggio, 46, 65122 Pescara PE, 085 943 1337) CON POST AL LOCALE DI FELLA
 '''
