@@ -14,18 +14,6 @@ class Banco(Mazzo):
         return mazzo.pop(len(mazzo)-1)
 
 """
-    def turno_banco(self):
-        bool = False
-        for i in range(len(self.__giocatori)-1):
-            if self.__giocatori[i].get_totale() > 21:
-                bool = True
-            else:
-                bool = False
-        if bool == False:
-            while self.__tot_carte < 17:
-                self.distribuisci(self)
-
-
     def confronto(self):
         for i in range(len(self.__giocatori)-1):
             if self.__tot_carte > 21:

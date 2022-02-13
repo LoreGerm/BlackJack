@@ -1,5 +1,3 @@
-# dizionario con chiave id giocatore e valore lista carte
-
 
 
 class Tavolo:
@@ -131,7 +129,8 @@ class Tavolo:
                 print(i,' : ',self.__carte_totali[i],'\n')
             else:
                 print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
-
+        s_vinti = 0
+        s_persi = 0
         while self.get_tot_carte_giocatore(self.__giocatori[-1]) < 17: # FIN TANTO CHE CARTE BANCO < 17
             s_vinti = 0
             s_persi = 0
@@ -151,8 +150,33 @@ class Tavolo:
             else:
                 break
 
-        print('vinto  ', s_vinti)
-        print('perso  ', s_persi)
+
+        self.confronto()
+
+    
+    def confronto(self):
+        for i in range(len(self.__giocatori)-1):
+            if self.get_tot_carte_giocatore(self.__giocatori[-1]) > 21 and self.__giocatori[i].get_perso() == False:
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__scommesse[self.__giocatori[i].get_id()]*2)
+                print(self.__giocatori[i].get_nome(),'  vinto')
+
+            elif self.__giocatori[i].get_perso() == True or self.get_tot_carte_giocatore(self.__giocatori[-1]) > self.get_tot_carte_giocatore(self.__giocatori[i]):
+                print(self.__giocatori[i].get_nome(),'  perso')
+
+            elif self.get_tot_carte_giocatore(self.__giocatori[-1]) == self.get_tot_carte_giocatore(self.__giocatori[i]):
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__scommesse[self.__giocatori[i].get_id()])
+                print(self.__giocatori[i].get_nome(),'  pari')
+
+            elif self.get_tot_carte_giocatore(self.__giocatori[-1]) < self.get_tot_carte_giocatore(self.__giocatori[i]):
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__scommesse[self.__giocatori[i].get_id()]*2)
+                print(self.__giocatori[i].get_nome(),'  vinto')
+
+            elif self.get_tot_carte_giocatore(self.__giocatori[-1]) == 21 and len(self.__carte_totali[self.__giocatori[-1].get_id()]) == 2 and len(self.__carte_totali[self.__giocatori[i].get_id()]) > 2:
+                print(self.__giocatori[i].get_nome(),'  perso')
+
+            else:
+                self.__giocatori[i].set_soldi(self.__giocatori[i].get_soldi() + self.__scommesse[self.__giocatori[i].get_id()]*2)
+                print(self.__giocatori[i].get_nome(),'  vinto')
         
 
 

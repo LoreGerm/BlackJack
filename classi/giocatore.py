@@ -1,4 +1,4 @@
-from xmlrpc.client import boolean
+
 from classi.banco import Banco
 from classi.tavolo import Tavolo
 
