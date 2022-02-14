@@ -42,11 +42,13 @@ class Quadri(Carta):
         elif numero == 13:
             self.seme = "Quadri"
             self.numero = 'K'
+        elif numero == 1:
+            self.seme = "Quadri"
+            self.numero = 'A'
         else:
             self.seme = "Quadri"
             self.numero = numero
-    
-    
+
 
 class Fiori(Carta):
 
@@ -60,6 +62,9 @@ class Fiori(Carta):
         elif numero == 13:
             self.seme = "Fiori"
             self.numero = 'K'
+        elif numero == 1:
+            self.seme = "Fiori"
+            self.numero = 'A'
         else:
             self.seme = "Fiori"
             self.numero = numero
@@ -77,6 +82,9 @@ class Picche(Carta):
         elif numero == 13:
             self.seme = "Picche"
             self.numero = 'K'
+        elif numero == 1:
+            self.seme = "Picche"
+            self.numero = 'A'
         else:
             self.seme = "Picche"
             self.numero = numero
@@ -94,6 +102,9 @@ class Cuori(Carta):
         elif numero == 13:
             self.seme = "Cuori"
             self.numero = 'K'
+        elif numero == 1:
+            self.seme = "Cuori"
+            self.numero = 'A'
         else:
             self.seme = "Cuori"
             self.numero = numero

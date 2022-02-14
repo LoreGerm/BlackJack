@@ -4,26 +4,35 @@ from classi.tavolo import Tavolo
 
 
 p1 = Giocatore('Ciatteo', 50000)
-player = [p1]
+p2 = Giocatore('Jachille', 50000)
+p3 = Giocatore("Jack la trivella dell'adriatico", 50000)
+player = [p1,p2,p3]
+scom1 = p1.scommetti(40000)
+scom2 = p2.scommetti(100)
+scom3 = p3.scommetti(6990)
+
+scommesse = [scom1,scom2,scom3]
+
 b = Banco(13)
 t = Tavolo(b, player)
-print(p1.get_id())
-t.set_carte(player)
-print(t.get_carte())
+
+t.turno_giocatore(scommesse)
+t.turno_banco()
+
+for i in range(len(player)-1):
+    print(player[i].get_soldi())
 
 
 
+'''
+SPLIT : instanzia un'altro giocatore uguale, la vittoria va al primo giocatore
+Array in giocatore per lo split con la seconda carta del giocatore
 
-# ESTRAI  OK
-#
-
-
-# :INIZIO GIOCO
-
-# SCOMMETTI     OK
-# DISTIBUISCI 2 CARTE   OK
-# TURNO GIOCATORE E BANCO (CHIEDE CARTA(CHECK SBALLO O BJ), STARE, RADDOPPIO)   OK
-# CONFRONTO CON BANCO   OK
-# RISULTATO SCOMMESSA   OK
-
-# GOTO INIZIO
+LISTA DI COSE DA FARE PER MARIA:
+- ZMQ
+- DATABASE
+- INTERFACCIA GRAFICA (HTML, JAVASCRIPT, PYTHONQT)
+- CREARE IL .EXE
+- 150€ DI DIRITTI COPYRIGHT 
+- OFFRIRE A MANGIARE E BERE ALLE TERRAZZE(Piazza I Maggio, 46, 65122 Pescara PE, 085 943 1337) CON POST AL LOCALE DI FELLA
+'''
