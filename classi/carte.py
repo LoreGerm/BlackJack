@@ -28,6 +28,7 @@ class Carta:
 
     def get_numero(self):
         return self.numero
+        
 
 
 class Quadri(Carta):
