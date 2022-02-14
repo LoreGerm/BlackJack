@@ -1,7 +1,7 @@
 import json
 import zmq
 
-from classi.giocatore import giocatore
+from classi.giocatore import Giocatore
 class client:
 
     context = zmq.Context()
@@ -12,7 +12,7 @@ class client:
 
 
     nome = input('Nome giocatore:  ')
-    p = giocatore(nome, 500000)
+    p = Giocatore(nome, 500000)
     p_json = json.dumps(p.__dict__)
     socket.send_json(p_json)
     message = socket.recv_json()

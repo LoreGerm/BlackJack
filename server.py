@@ -1,8 +1,8 @@
 import json
 import zmq
 
-from classi.banco import banco
-from classi.giocatore import giocatore
+from classi.banco import Banco
+from classi.giocatore import Giocatore
 
 class server:
 
@@ -18,7 +18,7 @@ class server:
         players = []
         player = socket.recv_json()  # SERVER RICEVE I GIOCATORI DAL CLIENT
         player = json.loads(player)
-        soldi = player['_giocatore__soldi']
+        soldi = player['_Giocatore__soldi']
         players.append(player)
         socket.send_json(soldi)
         print(players)
