@@ -73,7 +73,7 @@ class Tavolo:
                 print(i,' : ',self.__carte_totali[i],'\n')
             else:
                 print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
-        
+
 
         for i in range (len(self.__giocatori)-1):
             bj = 0
