@@ -58,6 +58,3 @@ while self.__fine == False:
             self.__socket.send_string(soldi)
         
 '''
-        
-hgfugrfqugrfqgf
-    
