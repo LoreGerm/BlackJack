@@ -56,5 +56,7 @@ while self.__fine == False:
             soldi = str(player.get_soldi())
             self.__players.append(player)
             self.__socket.send_string(soldi)
-        
 '''
+
+    
+
