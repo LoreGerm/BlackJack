@@ -34,9 +34,7 @@ class Server:
     def __init__(self):
         
         t = mp.Process(target = self.tempo())
-        t2 = mp.Process(target=self.ricevi())
         t.start()
-        t2.start()
         
         t.join()
         t2.join()
