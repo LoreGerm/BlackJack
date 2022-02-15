@@ -1,5 +1,8 @@
 
 
+from classi.giocatore import Giocatore
+
+
 class Tavolo:
 
 
@@ -40,8 +43,15 @@ class Tavolo:
     def set_scommessa(self, giocatore, scommessa):
         self.__scommesse[giocatore.get_id()] = scommessa
 
-
-
+    def set_giocatore(self,giocatore):
+        x = self.__giocatori.pop(len(self.__giocatori)-1)
+        if isinstance(list,giocatore):
+            for i in giocatore:
+                self.__giocatori.append(i)
+            self.__giocatori.append(x)
+        else:
+            self.__giocatori.append(giocatore)
+            self.__giocatori.append(x)
 
     def set_carte(self, giocatori):
         if isinstance(giocatori, list):
@@ -59,9 +69,8 @@ class Tavolo:
 
 
 
-    def turno_giocatore(self,scommessa):
-        for i in range (len(self.__giocatori)-1):
-            self.set_scommessa(self.__giocatori[i],scommessa[i]) # SCOMMETTE
+    def turno_giocatore(self):
+         # SCOMMETTE
 
         for i in range (len(self.__giocatori)):
             self.set_carte(self.__giocatori[i])   # PRIME CARTE

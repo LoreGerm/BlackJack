@@ -1,0 +1,16 @@
+'''
+_______THREAD___________________
+
+    def tempo(self):
+        a = time.time()
+        b = a + 5
+        while a < b:
+            a = time.time()
+        self.__fine = True
+        print("Chiudo il server")
+        self.__socket.close()
+
+    t = mp.Thread(target = self.tempo)
+    t.start()
+
+'''
