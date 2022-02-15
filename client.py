@@ -18,7 +18,6 @@ class client:
     message = socket.recv_json()
     print("Soldi: ", message)
 
-
     socket.close()
 
 
