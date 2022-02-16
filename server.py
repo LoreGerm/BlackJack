@@ -1,7 +1,7 @@
 
 import time 
 import zmq
-import threading as mp
+import threading as tr
 
 from classi.banco import Banco
 from classi.giocatore import Giocatore
@@ -13,12 +13,13 @@ class Server:
 
     __context = zmq.Context()
     __socket = __context.socket(zmq.REP)
-    __socket.bind("tcp://192.168.1.8:5555")
+    __socket.bind("tcp://0.0.0.0:5555")
     __socket.RCVTIMEO = 10000
     __b = Banco(13)
     __giocatori = []
     __fine = False
     __scommesse_tot = []
+    __socket.g
 
     def crea_giocatore(self):
         while self.__fine == False:
@@ -26,8 +27,8 @@ class Server:
                 x = self.__socket.recv_string()  # SERVER RICEVE I GIOCATORI DAL CLIENT
                 player = Giocatore(x, 50000)
                 soldi = str(player.get_soldi())
-                self.__giocatori.append(player)
                 self.__socket.send_string(soldi)
+                self.__giocatori.append(player)
             except:
                 self.__fine = True
 
@@ -51,11 +52,21 @@ class Server:
             except:
                 self.__fine = True
 
+    def rcv_ping(self):
+        nome = self.__socket.recv_string()
+        self.__socket.send_string('0')
+        print(nome)
+        
+
 
     def __init__(self):
         self.crea_giocatore()
-        self.__t = Tavolo(self.__b, self.__giocatori)
-        print(self.__giocatori)
+        self.rcv_ping()
+        ping = self.__socket.recv_string()
+        print(ping)
+        #self.crea_giocatore()
+        #self.__t = Tavolo(self.__b, self.__giocatori)
+        #print(self.__giocatori)
     
         
 if __name__ == "__main__":
