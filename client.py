@@ -1,3 +1,4 @@
+
 import json
 import time
 import zmq
@@ -6,7 +7,7 @@ class Client:
 
     __context = zmq.Context()
     __socket = __context.socket(zmq.REQ)
-    __socket.connect("tcp://192.168.200.220:5555")
+    __socket.connect("tcp://192.168.200.70:5555")
 
 
     def crea_giocatore(self):
@@ -27,22 +28,23 @@ class Client:
 
 
     def ping(self):
-        self.__socket.RCVTIMEO = 500
+        self.__socket.RCVTIMEO = 1000
         x = False
-        #self.__socket.send_string("self.__nome")
+        self.__socket.send_string("self.__nome")
         while x == False:
             try:
-                self.__socket.send_string("sono io")
                 message = self.__socket.recv_string()
+                self.__socket.send_string("sono io")
                 print(message)
                 x = True
-            except:
+            except Exception as e:
                 print('messaggio non ricevuto')
-
+                print(e)
 
 
     def __init__(self):
         self.crea_giocatore()
+        self.ping()
 
 
 

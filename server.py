@@ -1,4 +1,5 @@
 
+
 import time 
 import zmq
 import threading as tr
@@ -13,13 +14,12 @@ class Server:
 
     __context = zmq.Context()
     __socket = __context.socket(zmq.REP)
-    __socket.bind("tcp://0.0.0.0:5555")
+    __socket.bind("tcp://192.168.200.70:5555")
     __socket.RCVTIMEO = 10000
     __b = Banco(13)
     __giocatori = []
     __fine = False
     __scommesse_tot = []
-    __socket.g
 
     def crea_giocatore(self):
         while self.__fine == False:
@@ -29,8 +29,9 @@ class Server:
                 soldi = str(player.get_soldi())
                 self.__socket.send_string(soldi)
                 self.__giocatori.append(player)
-            except:
+            except Exception as e:
                 self.__fine = True
+                print(e)
 
     def scommessa(self):
         while self.__fine == False:
@@ -53,7 +54,9 @@ class Server:
                 self.__fine = True
 
     def rcv_ping(self):
+        print('rcv_puing 1')
         nome = self.__socket.recv_string()
+        print('rcv_puing 2')
         self.__socket.send_string('0')
         print(nome)
         
