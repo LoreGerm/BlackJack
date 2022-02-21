@@ -54,19 +54,15 @@ class Server:
                 self.__fine = True
 
     def rcv_ping(self):
-        print('rcv_puing 1')
-        nome = self.__socket.recv_string()
-        print('rcv_puing 2')
-        self.__socket.send_string('0')
-        print(nome)
+        print('rcv_ping 1')
+        self.__socket.send_string('gh')
+        print('rcv_ping 2')
         
 
 
     def __init__(self):
         self.crea_giocatore()
         self.rcv_ping()
-        ping = self.__socket.recv_string()
-        print(ping)
         #self.crea_giocatore()
         #self.__t = Tavolo(self.__b, self.__giocatori)
         #print(self.__giocatori)

@@ -13,4 +13,26 @@ _______THREAD___________________
     t = mp.Thread(target = self.tempo)
     t.start()
 
+
+
+        print('rcv_ping 1')
+        nome = self.__socket.recv_string()
+        print('rcv_ping 2')
+
+
+
+
+
+        a = self.__socket.RCVTIMEO = 1000
+        x = False
+        self.__socket.send_string("boh")
+        while x == False:
+            try:
+                mex = self.__socket.recv_string()
+                #self.__socket.send_string("sono io")
+                print(mex)
+                x = True
+            except Exception as e:
+                print('messaggio non ricevuto')
+                print(e)
 '''
