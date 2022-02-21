@@ -1,15 +1,17 @@
 
 
 from classi.giocatore import Giocatore
+from classi.banco import Banco
 
 
 class Tavolo:
 
 
-    def __init__(self, banco, giocatori):
+    def __init__(self, giocatori, porta):
         self.__scommesse = {}
         self.__giocatori = giocatori
-        self.__giocatori.append(banco)  # GIOCATORI + BANCO
+        self.__porta = porta
+        self.__giocatori.append(Banco(13))  # GIOCATORI + BANCO
         self.__carte_totali = {}
 
     def get_carte_giocatore(self,giocatore):

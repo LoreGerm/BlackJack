@@ -30,7 +30,7 @@ class Casino:
         if len(self.__li_atts) >= 1:
             gio = []
             gio.append(self.__li_atts.pop(0))
-            t = Tavolo(gio)
+            t = Tavolo(gio, 8000)
             self.__socket.send_string('sei in tavolo1')
 
         print(t.__dict__)

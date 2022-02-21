@@ -4,11 +4,11 @@
 class Giocatore:
 
 
-    def __init__(self,nome,soldi):
+    def __init__(self,nome,soldi,id):
         self.__nome = nome
         assert isinstance(soldi,int) > 0 , "non valido"
         self.__soldi = soldi
-        self.__id = id(self)
+        self.__id = id
         self.__perso = False
         self.__cont = 0
 
