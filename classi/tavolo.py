@@ -41,6 +41,9 @@ class Tavolo:
     def confronto(self):
         pass
 
+    def get_giocatori(self):
+        return self.__giocatori
+
 
     def set_scommessa(self, giocatore, scommessa):
         self.__scommesse[giocatore.get_id()] = scommessa

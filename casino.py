@@ -11,6 +11,10 @@ class Casino:
         self.__context = zmq.Context()
         self.__socket = self.__context.socket(zmq.REP)
         self.__socket.bind("tcp://0.0.0.0:5555")
+        self.__t1_0 = Tavolo([],8000)
+        self.__t1_1 = Tavolo([],8001)
+        self.__t1_2 = Tavolo([],8002)
+        self.__lista_t1 = [self.__t1_0, self.__t1_1, self.__t1_2]
 
     def ricevi_comando(self):
         x = self.__socket.recv_json()
@@ -27,13 +31,15 @@ class Casino:
 
 
     def crea_tavolo_1(self):
-        if len(self.__li_atts) >= 1:
-            gio = []
-            gio.append(self.__li_atts.pop(0))
-            t = Tavolo(gio, 8000)
-            self.__socket.send_string('sei in tavolo1')
+        for i in self.__lista_t1:
+            if len(i.get_giocatori()) == 1:
+                if len(self.__li_atts) >= 1:
+                    gio = []
+                    gio.append(self.__li_atts.pop(0))
+                    i.set_giocatore(gio)
+                    self.__socket.send_string('sei in tavolo1')
 
-        print(t.__dict__)
+                print(i.__dict__)
 
 
 
