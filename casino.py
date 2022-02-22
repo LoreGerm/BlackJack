@@ -60,4 +60,4 @@ if __name__ == '__main__':
             c.aggiungi_attesa(x)
         elif x['cmd'] == 'tv1':
             c.crea_tavolo_1()
-            c.gioca(c.crea_tavolo_1())
+            #c.gioca(c.crea_tavolo_1())
