@@ -39,8 +39,9 @@ class Casino:
                     gio = []
                     gio.append(self.__li_atts.pop(0))
                     i.set_giocatore(gio)
-                    self.__socket.send_string('sei in tavolo1')
-                    return i ##########################
+                    self.__socket.send_string('sei in tavolo:  ', i.get_id())
+                    break
+                    #################### return i ########################## RITORNA IL TAVOLO UTILIZZATO
 
         print(i.__dict__)
         print('')

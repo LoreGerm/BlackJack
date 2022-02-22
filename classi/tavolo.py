@@ -8,6 +8,7 @@ class Tavolo:
 
 
     def __init__(self, giocatori, porta):
+        self.__id = id(self)
         self.__scommesse = {}
         self.__giocatori = giocatori
         self.__porta = porta
@@ -34,6 +35,9 @@ class Tavolo:
 
     def get_carte(self):
         return self.__carte_totali
+
+    def get_id(self):
+        return self.__id
 
     def get_scommesse(self):
         return self.__scommesse
