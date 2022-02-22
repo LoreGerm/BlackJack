@@ -41,5 +41,17 @@ _______THREAD___________________
 
 
 
+for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
+    if self.__giocatori[-1].get_id() == i:
+        print(i,' : ',self.__carte_totali[i],'\n')
+    else:
+        print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
 
+
+
+for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
+    if self.__giocatori[-1].get_id() == i:
+        print(i,' : ',self.__carte_totali[i],'\n')
+    else:
+        print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
 '''

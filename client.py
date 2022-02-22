@@ -30,6 +30,21 @@ class Client:
         self.__socket.send_json(p_json)
         message = self.__socket.recv_string()
         print(message)
+
+
+    def richiedi_menu(self):
+        dict = {
+            'cmd' : 'menu',
+            'valore' : self.__nome,
+            'id' : 0
+        }
+        p_json = json.dumps(dict)
+        self.__socket.send_json(p_json)
+        mesg = self.__socket.recv_string()
+        if mesg == 'menu':
+            self.__socket.send_string(Giocatore.scelta())
+
+
     
 
 
@@ -37,3 +52,4 @@ if __name__ == '__main__':
     c = Client()
     c.connetti_casino()
     c.connetti_tavolo1()
+    c.richiedi_menu()

@@ -12,13 +12,14 @@ class Giocatore:
         self.__perso = False
         self.__cont = 0
 
+    @classmethod
     def scelta(self):
         print('1 - Shtatt ferm')
         print('2 - Chiedi carta')
-        if self.__cont == 0:
-            print('3 - Raddoppia')
-        self.__cont = 1
-        return int(input('Scegli mossa:  '))
+        #if self.__cont == 0:
+        print('3 - Raddoppia')
+        #self.__cont = 1
+        return input('Scegli mossa:  ')
 
     def get_perso(self):
         return self.__perso

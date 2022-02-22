@@ -41,11 +41,18 @@ class Casino:
                     i.set_giocatore(gio)
                     msg = 'sei in tavolo:  ' + str(i.get_id())
                     self.__socket.send_string(msg)
-                    ################# return i ########################## RITORNA IL TAVOLO UTILIZZATO
+                    return i ########################## RITORNA IL TAVOLO UTILIZZATO
                     break
 
         print(i.__dict__)
         print('')
+
+
+    def mostra_menu(self):
+        
+        self.__socket.send_string('menu')
+        scelta = int(self.__socket.recv_string())
+        print(scelta)
 
     # PROVA
     def gioca(self, tavolo):
@@ -63,3 +70,5 @@ if __name__ == '__main__':
         elif x['cmd'] == 'tv1':
             c.crea_tavolo_1()
             #c.gioca(c.crea_tavolo_1())
+        elif x['cmd'] == 'menu':
+            c.mostra_menu()
