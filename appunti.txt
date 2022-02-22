@@ -35,4 +35,11 @@ _______THREAD___________________
             except Exception as e:
                 print('messaggio non ricevuto')
                 print(e)
+
+
+
+
+
+
+
 '''
