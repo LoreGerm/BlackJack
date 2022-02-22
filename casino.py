@@ -20,6 +20,7 @@ class Casino:
         x = self.__socket.recv_json()
         dict = json.loads(x)
         print(dict)
+        print('')
         return dict
 
     def aggiungi_attesa(self, dict):
@@ -28,6 +29,7 @@ class Casino:
         self.__li_atts.append(Giocatore(dict['valore'], dict['soldi'], dict['id']))
         self.__socket.send_string('sei in attesa')
         print(self.__li_atts[0].__dict__)
+        print('')
 
 
     def crea_tavolo_1(self):
@@ -38,9 +40,15 @@ class Casino:
                     gio.append(self.__li_atts.pop(0))
                     i.set_giocatore(gio)
                     self.__socket.send_string('sei in tavolo1')
+                    return i ##########################
 
-                print(i.__dict__)
+        print(i.__dict__)
+        print('')
 
+    # PROVA
+    def gioca(self, tavolo):
+        tavolo.turno_giocatore()
+        tavolo.turno_banco()
 
 
 if __name__ == '__main__':
@@ -52,3 +60,4 @@ if __name__ == '__main__':
             c.aggiungi_attesa(x)
         elif x['cmd'] == 'tv1':
             c.crea_tavolo_1()
+            c.gioca(c.crea_tavolo_1())

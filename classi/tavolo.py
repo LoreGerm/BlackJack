@@ -50,7 +50,7 @@ class Tavolo:
 
     def set_giocatore(self,giocatore):
         x = self.__giocatori.pop(len(self.__giocatori)-1)
-        if isinstance(list,giocatore):
+        if isinstance(giocatore, list):
             for i in giocatore:
                 self.__giocatori.append(i)
             self.__giocatori.append(x)
@@ -75,7 +75,6 @@ class Tavolo:
 
 
     def turno_giocatore(self):
-         # SCOMMETTE
 
         for i in range (len(self.__giocatori)):
             self.set_carte(self.__giocatori[i])   # PRIME CARTE
