@@ -1,3 +1,4 @@
+
 from classi.giocatore import Giocatore
 from classi.tavolo import Tavolo
 import zmq
