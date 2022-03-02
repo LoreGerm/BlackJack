@@ -15,6 +15,9 @@ class Tavolo:
         self.__giocatori.append(Banco(13))  # GIOCATORI + BANCO
         self.__carte_totali = {}
 
+    def get_porta(self):
+        return self.__porta
+
     def get_carte_giocatore(self,giocatore):
         return self.__carte_totali[giocatore.get_id()]
     

@@ -4,6 +4,9 @@ from classi.tavolo import Tavolo
 import zmq
 import json
 import uuid
+import threading
+from tavolo_s import Tavolo_s
+
 
 class Casino:
     __li_atts = []
@@ -11,10 +14,10 @@ class Casino:
     def __init__(self):
         self.__context = zmq.Context()
         self.__socket = self.__context.socket(zmq.REP)
-        self.__socket.bind("tcp://0.0.0.0:5555")
-        self.__t1_0 = Tavolo([],8000)
-        self.__t1_1 = Tavolo([],8001)
-        self.__t1_2 = Tavolo([],8002)
+        self.__socket.bind("tcp://192.168.200.70:5555")
+        self.__t1_0 = Tavolo([],'8000')
+        self.__t1_1 = Tavolo([],'8001')
+        self.__t1_2 = Tavolo([],'8002')
         self.__lista_t1 = [self.__t1_0, self.__t1_1, self.__t1_2]
 
     def ricevi_comando(self):
@@ -33,32 +36,52 @@ class Casino:
         print('')
 
 
-    def crea_tavolo_1(self):
+    def agg_a_tavolo_1(self):
         for i in self.__lista_t1:
             if len(i.get_giocatori()) == 1:
                 if len(self.__li_atts) >= 1:
                     gio = []
                     gio.append(self.__li_atts.pop(0))
                     i.set_giocatore(gio)
-                    msg = 'sei in tavolo:  ' + str(i.get_id())
-                    self.__socket.send_string(msg)
-                    return i ########################## RITORNA IL TAVOLO UTILIZZATO
+                    self.__socket.send_string(i.get_porta())
+                    porta = i.get_porta()
                     break
-
+        
+        t = Tavolo_s(porta)
+        th = threading.Thread(target=t.partita, args=()) ## THREAD DEL TAVOLO
+        
         print(i.__dict__)
         print('')
 
+##############################################################
 
-    def mostra_menu(self):
-        
-        self.__socket.send_string('menu')
-        scelta = int(self.__socket.recv_string())
+    def tavolo(self,socket):
+        x = self.ricevi_comando(socket)
+        if x['cmd'] == 'menu':
+            self.mostra_menu(socket)
+        elif x['cmd'] == 'scomm':
+            self.ricv_scomm(socket)
+
+
+
+    def mostra_menu(self, socket):
+        socket.send_string('menu')
+        scelta = int(socket.recv_string())
+        if scelta == 1:
+            socket.send_string('Stai fermo')
+        elif scelta == 2:
+            socket.send_string('Carta')
+        else:
+            socket.send_string('Raddoppia')
+
         print(scelta)
 
-    # PROVA
-    def gioca(self, tavolo):
-        tavolo.turno_giocatore()
-        tavolo.turno_banco()
+
+    def ricv_scomm(self,socket):
+        scomm = json.loads(socket.recv_json())
+        
+        
+
 
 
 if __name__ == '__main__':
@@ -69,7 +92,12 @@ if __name__ == '__main__':
         if x['cmd'] == 'login':
             c.aggiungi_attesa(x)
         elif x['cmd'] == 'tv1':
-            c.crea_tavolo_1()
-            #c.gioca(c.crea_tavolo_1())
+            c.agg_a_tavolo_1()
+        
+'''
         elif x['cmd'] == 'menu':
             c.mostra_menu()
+        elif x['cmd'] == 'scomm':
+            c.ricv_scomm()
+'''
+        
