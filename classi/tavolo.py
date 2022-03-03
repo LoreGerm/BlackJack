@@ -1,5 +1,5 @@
 
-
+import zmq
 from classi.giocatore import Giocatore
 from classi.banco import Banco
 
@@ -14,6 +14,7 @@ class Tavolo:
         self.__porta = porta
         self.__giocatori.append(Banco(13))  # GIOCATORI + BANCO
         self.__carte_totali = {}
+        
 
     def get_porta(self):
         return self.__porta

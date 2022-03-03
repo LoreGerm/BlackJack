@@ -89,6 +89,7 @@ if __name__ == '__main__':
     c = Casino()
     while True:
         x = c.ricevi_comando()
+        print(x)
         if x['cmd'] == 'login':
             c.aggiungi_attesa(x)
         elif x['cmd'] == 'tv1':

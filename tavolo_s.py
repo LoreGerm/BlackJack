@@ -40,19 +40,14 @@ class Tavolo_s:
     def partita(self):
         while True:
             x = self.ricevi_comando()
+            print(x)
             if x['cmd'] == 'menu':
                 self.mostra_menu()
             elif x['cmd'] == 'scomm':
                 self.ricv_scomm()
 
 
-'''
+
 if __name__ == '__main__':
-    t = Tavolo_s()
-    while True:
-        x = t.ricevi_comando()
-        if x['cmd'] == 'menu':
-            t.mostra_menu()
-        elif x['cmd'] == 'scomm':
-            t.ricv_scomm()
-'''
+    t = Tavolo_s('8000')
+    t.partita()
