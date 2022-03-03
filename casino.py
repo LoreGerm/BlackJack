@@ -49,6 +49,7 @@ class Casino:
         
         t = Tavolo_s(porta)
         th = threading.Thread(target=t.partita, args=()) ## THREAD DEL TAVOLO
+        th.start()
         
         print(i.__dict__)
         print('')
