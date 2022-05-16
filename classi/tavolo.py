@@ -7,12 +7,12 @@ from classi.banco import Banco
 class Tavolo:
 
 
-    def __init__(self, giocatori, porta):
+    def __init__(self, banco, giocatori):
         self.__id = id(self)
         self.__scommesse = {}
         self.__giocatori = giocatori
-        self.__porta = porta
-        self.__giocatori.append(Banco(13))  # GIOCATORI + BANCO
+        #self.__porta = porta
+        self.__giocatori.append(banco)  # GIOCATORI + BANCO
         self.__carte_totali = {}
         
 
@@ -65,6 +65,7 @@ class Tavolo:
         else:
             self.__giocatori.append(giocatore)
             self.__giocatori.append(x)
+
 
     def set_carte(self, giocatori):
         if isinstance(giocatori, list):

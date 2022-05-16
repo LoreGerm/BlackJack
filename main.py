@@ -3,9 +3,9 @@ from classi.giocatore import Giocatore
 from classi.tavolo import Tavolo
 
 
-p1 = Giocatore('Ciatteo', 50000)
-p2 = Giocatore('Jachille', 50000)
-p3 = Giocatore("Jack la trivella dell'adriatico", 50000)
+p1 = Giocatore('Ciatteo', 50000, 1)
+p2 = Giocatore('Jachille', 50000, 2)
+p3 = Giocatore("Jack la trivella dell'adriatico", 50000, 2)
 player = [p1,p2,p3]
 scom1 = p1.scommetti(40000)
 scom2 = p2.scommetti(100)
@@ -16,7 +16,7 @@ scommesse = [scom1,scom2,scom3]
 b = Banco(13)
 t = Tavolo(b, player)
 
-t.turno_giocatore(scommesse)
+t.turno_giocatore()
 t.turno_banco()
 
 for i in range(len(player)-1):
