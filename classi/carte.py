@@ -39,78 +39,62 @@ class Carta:
 class Quadri(Carta):
 
     def __init__(self, numero):
+        self.set_seme("Quadri")
         if numero == 11:
-            self.set_seme("Quadri")
             self.set_numero('J')
         elif numero == 12:
-            self.set_seme("Quadri")
             self.set_numero('Q')
         elif numero == 13:
-            self.set_seme("Quadri")
             self.set_numero('K')
         elif numero == 1:
-            self.set_seme("Quadri")
             self.set_numero('A')
         else:
-            self.set_seme("Quadri")
             self.set_numero(numero)
 
 
 class Fiori(Carta):
 
     def __init__(self, numero):
+        self.set_seme("Fiori")
         if numero == 11:
-            self.set_seme("Fiori")
             self.set_numero('J')
         elif numero == 12:
-            self.set_seme("Fiori")
             self.set_numero('Q')
         elif numero == 13:
-            self.set_seme("Fiori")
             self.set_numero('K')
         elif numero == 1:
-            self.set_seme("Fiori")
             self.set_numero('A')
         else:
-            self.set_seme("Fiori")
             self.set_numero(numero)
 
 
 class Picche(Carta):
 
     def __init__(self, numero):
+        self.set_seme("Picche")
         if numero == 11:
-            self.set_seme("Picche")
             self.set_numero('J')
         elif numero == 12:
-            self.set_seme("Picche")
             self.set_numero('Q')
         elif numero == 13:
-            self.set_seme("Picche")
             self.set_numero('K')
         elif numero == 1:
-            self.set_seme("Picche")
             self.set_numero('A')
         else:
-            self.set_seme("Picche")
             self.set_numero(numero)
 
 
 class Cuori(Carta):
 
     def __init__(self, numero):
+        self.set_seme("Cuori")
         if numero == 11:
-            self.set_seme("Cuori")
             self.set_numero('J')
         elif numero == 12:
-            self.set_seme("Cuori")
             self.set_numero('Q')
         elif numero == 13:
-            self.set_seme("Cuori")
             self.set_numero('K')
         elif numero == 1:
-            self.set_seme("Cuori")
             self.set_numero('A')
         else:
-            self.set_seme("Cuori")
             self.set_numero(numero)
