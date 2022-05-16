@@ -1,7 +1,6 @@
 
 class Giocatore:
 
-
     def __init__(self,nome,soldi):
         self.__nome = nome
         assert isinstance(soldi,int) > 0 , "non valido"

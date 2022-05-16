@@ -1,13 +1,13 @@
 from classi.carte import Mazzo
+from classi.giocatore import Giocatore
 
-class Banco(Mazzo):
+class Banco(Giocatore):
+
+    __mazzo = None
 
     def __init__(self,numero_carte):
-        super().__init__(numero_carte)
-        self.__id = id(self)
-
-    def get_id(self):
-        return self.__id
+        __mazzo = Mazzo(numero_carte)
+        super.__init__('Banco', 0)
 
     def estrai(self):
         mazzo = super().get_Mazzo()
