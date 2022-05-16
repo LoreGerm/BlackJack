@@ -1,7 +1,4 @@
 
-from classi.banco import Banco
-from classi.tavolo import Tavolo
-
 class Giocatore:
 
 

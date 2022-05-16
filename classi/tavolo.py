@@ -68,11 +68,14 @@ class Tavolo:
         for i in range (len(self.__giocatori)):
             self.set_carte(self.__giocatori[i])   # SECONDE CARTE
 
+        cont = 0
         for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
             if self.__giocatori[-1].get_id() == i:
-                print(i,' : ',self.__carte_totali[i],'\n')
+                print('Banco',' : ',self.__carte_totali[i],'\n')
             else:
-                print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
+                if self.__giocatori[cont].get_id() == i:
+                    print(self.__giocatori[cont].get_nome(),' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
+            cont += 1
 
 
         for i in range (len(self.__giocatori)-1):
@@ -124,12 +127,16 @@ class Tavolo:
 
 
     def turno_banco(self):
-        print('\n')
+        print('\n')        
+        
+        cont = 0
         for i in self.__carte_totali:   # STAMPA I GIOCATORI, LE CARTE E LE SCOMMESSE
             if self.__giocatori[-1].get_id() == i:
-                print(i,' : ',self.__carte_totali[i],'\n')
+                print('Banco',' : ',self.__carte_totali[i],'\n')
             else:
-                print(i,' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
+                if self.__giocatori[cont].get_id() == i:
+                    print(self.__giocatori[cont].get_nome(),' : ',self.__carte_totali[i],' : ', self.__scommesse[i],'\n')
+            cont += 1
         s_vinti = 0
         s_persi = 0
         while self.get_tot_carte_giocatore(self.__giocatori[-1]) < 17: # FIN TANTO CHE CARTE BANCO < 17
