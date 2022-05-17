@@ -7,14 +7,14 @@ class Giocatore:
         self.__soldi = soldi
         self.__id = id(self)
         self.__perso = False
-        self.__cont = 0
+        self.__turno = 0
 
     def scelta(self):
         print('1 - Shtatt ferm')
         print('2 - Chiedi carta')
-        if self.__cont == 0:
+        if self.__turno == 0:
             print('3 - Raddoppia')
-        self.__cont = 1
+        self.__turno = 1
         return int(input('Scegli mossa:  '))
 
     def get_perso(self):
@@ -39,7 +39,8 @@ class Giocatore:
     def set_soldi(self, soldi):
         self.__soldi = soldi
 
-    def scommetti(self,scommessa):
+    def scommetti(self):
+        scommessa = int(input('Inserisci scommessa:  '))
         if scommessa <= self.__soldi:
             self.__soldi -= scommessa
             return scommessa

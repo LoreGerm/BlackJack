@@ -7,9 +7,9 @@ p1 = Giocatore('Ciatteo', 50000)
 p2 = Giocatore('Jachille', 50000)
 p3 = Giocatore("Jack la trivella dell'adriatico", 50000)
 player = [p1,p2,p3]
-scom1 = p1.scommetti(40000)
-scom2 = p2.scommetti(100)
-scom3 = p3.scommetti(6990)
+scom1 = p1.scommetti()
+scom2 = p2.scommetti()
+scom3 = p3.scommetti()
 
 scommesse = [scom1,scom2,scom3]
 
